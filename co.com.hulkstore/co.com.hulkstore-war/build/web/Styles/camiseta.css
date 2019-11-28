@@ -1,0 +1,32 @@
+dialog::backdrop {
+  background: rgba(0,0,0,.6);
+}
+
+#mostrar {
+  background-color: #67C3E6;
+  color: #161616;
+  border: none;
+  padding: .7rem 1.4rem;
+  font-size: 1.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#mostrar:hover {
+  background-color: #43AED6;
+  transition: .2s ease-in;
+}
+
+#dialogo {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#cerrar {
+  background: #67C3E6;
+  border: none;
+  border-radius: 5px;
+  padding: .4rem 1rem;
+  cursor: pointer;
+}

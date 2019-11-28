@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Hult Store</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+                    <header class="w3-container w3-green"> 
+                        <span onclick="document.getElementById('id01').style.display = 'none'" 
+                              class="w3-button w3-red w3-xlarge w3-display-topright">&times;</span>
+                        <h2>Camisetas</h2>
+                    </header>
+
+                    <div class="w3-bar w3-border-bottom">
+                        <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'crearCamiseta')">Crear Camiseta</button>
+                        <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'actualizaCamiseta')">Actualizar Camiseta</button>
+                        <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'ListCamiseta')">Lista Camisetas</button>
+                    </div>
+                    <form>
+                        <div id="crearCamiseta" class="w3-container city">
+                            <br></br>
+                            <label><b>Nombre</b></label>
+                            <input class="w3-input w3-border" type="Nombre" placeholder="Nombre" name="Nombre" value="#{PrincipalBean.camisetaDto.nombre}"/>
+                            <label><b>Descripcion</b></label>
+                            <input class="w3-input w3-border" type="Descripcion" placeholder="Descripcion" name="Descripcion" value="#{PrincipalBean.camisetaDto.descripcion}"/>
+                            <label><b>Talla</b></label>
+                            <input class="w3-input w3-border" type="Talla" placeholder="Talla" name="talla" value="#{PrincipalBean.camisetaDto.talla}"/>
+                            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" action="#{PrincipalBean.crearCamiseta(PrincipalBean.camisetaDto)}">Crear</button>
+                        </div>
+                    </form>
+                    <div id="actualizaCamiseta" class="w3-container city">
+                        <br></br>
+                        <label><b>Nombre</b></label>
+                        <input class="w3-input w3-border" type="Nombre" placeholder="Nombre" name="Nombre" value="#{PrincipalBean.camisetaDto.nombre}"/>
+                        <label><b>Descripcion</b></label>
+                        <input class="w3-input w3-border" type="Descripcion" placeholder="Descripcion" name="Descripcion" value="#{PrincipalBean.camisetaDto.descripcion}"/>
+                        <label><b>Talla</b></label>
+                        <input class="w3-input w3-border" type="Talla" placeholder="Talla" name="talla" value="#{PrincipalBean.camisetaDto.talla}"/>
+                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" onclick="#{PrincipalBean.crearCamiseta(PrincipalBean.camisetaDto)}">Crear</button>
+                    </div>
+
+                    <div id="ListCamiseta" class="w3-container city">
+                        <p:dataTable id="radioDT" var="camiseta" value="#{PrincipalBean.listcamisetaDto}" selection="#{PrincipalBean.camisetaDto}" rowKey="#{camiseta.id}">
+                            <f:facet name="header">
+                                selecione camiseta que desea borrar
+                            </f:facet>
+                            <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                            <p:column headerText="Id">
+                                <h:outputText value="#{camiseta.id}" />
+                            </p:column>
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{camiseta.nombre}" />
+                            </p:column>
+                            <p:column headerText="Descripcion">
+                                <h:outputText value="#{camiseta.descripcion}" />
+                            </p:column>
+                            <p:column headerText="Talla">
+                                <h:outputText value="#{camiseta.talla}" />
+                            </p:column>
+                            <f:facet name="footer">
+                                <p:commandButton  icon="pi pi-search" value="Ver"  />
+                            </f:facet>
+                        </p:dataTable>
+                    </div>
+
+                    <div class="w3-container w3-light-grey w3-padding">
+                        <button class="w3-button w3-right w3-red w3-border" 
+                                onclick="document.getElementById('id01').style.display = 'none'">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </ui:composition>
+
+    </h:body>
+</html>
